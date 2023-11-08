@@ -7,6 +7,7 @@ const lcjs = require('@arction/lcjs')
 // Extract required parts from LightningChartJS.
 const { lightningChart, AxisTickStrategies, emptyLine, LegendBoxBuilders, Themes } = lcjs
 
+// NOTE: Using `Dashboard` is no longer recommended for new applications. Find latest recommendations here: https://lightningchart.com/js-charts/docs/basic-topics/grouping-charts/
 const dashboard = lightningChart()
     .Dashboard({
         numberOfColumns: 1,
@@ -68,7 +69,9 @@ const axisX = chart
     })
 const legend = chart.addLegendBox(LegendBoxBuilders.HorizontalLegendBox).add(chart)
 
-const zoomBandChart = dashboard.createZoomBandChart({ axis: axisX, columnIndex: 0, rowIndex: 1 }).setTitle('')
+const zoomBandChart = dashboard.createZoomBandChart({ columnIndex: 0, rowIndex: 1 }).setTitle('')
+zoomBandChart.add(seriesClose)
+zoomBandChart.add(seriesVolume)
 
 fetch(document.head.baseURI + 'examples/assets/0053/data.json')
     .then((r) => r.json())
