@@ -17,7 +17,7 @@ const dashboard = lightningChart()
     .setRowHeight(0, 1)
     .setRowHeight(1, 0.2)
 
-const chart = dashboard.createChartXY({ columnIndex: 0, rowIndex: 0 }).setTitle('AAPL historical stock price and volume December 2021')
+const chart = dashboard.createChartXY({ columnIndex: 0, rowIndex: 0 }).setTitle('Chart with data gaps')
 
 const axisClose = chart.getDefaultAxisY().setTitle('Stock price (€)')
 

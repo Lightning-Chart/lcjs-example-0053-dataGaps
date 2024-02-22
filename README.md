@@ -19,12 +19,7 @@ The demo can be used as an example or a seed project. Local execution requires t
 
 ## Description
 
-**Please note that using LightningChart JS for Trading use cases requires a special license agreement.**
-For more information, please [contact us](https://lightningchart.com/contact/).
-
-Normally, series types such as `LineSeries`, `AreaSeries`, etc. automatically connect data points to highlight the progression of trend values. In some specific use cases, this is not the ideal behavior. One such use case is trading data visualization, which is also the setting for this particular.
-
-Trading data often contains frequent _data gaps_, meaning relatively large time intervals when there are no data samples available. These correspond to times when the market is "closed", evenings and weekends.
+Normally, series types such as `LineSeries`, `AreaSeries`, etc. automatically connect data points to highlight the progression of trend values. In some specific use cases, this is not the ideal behavior as data may contain frequent _data gaps_, meaning relatively large time intervals when there are no data samples available.
 
 [//]: # 'IMPORTANT: The assets will not show before README.md is built - relative path is different!'
 
@@ -60,7 +55,7 @@ Official [API documentation][1] can be found on [LightningChart][2] website.
 
 If the docs and other materials do not solve your problem as well as implementation help is needed, ask on [StackOverflow][3] (tagged lightningchart).
 
-If you think you found a bug in the LightningChart JavaScript library, please contact support@lightningchart.com.
+If you think you found a bug in the LightningChart JavaScript library, please contact sales@lightningchart.com.
 
 Direct developer email support can be purchased through a [Support Plan][4] or by contacting sales@lightningchart.com.
 
@@ -73,13 +68,13 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2022. All rights reserved.
 
 
-[Lightning chart]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/functions/lightningChart-1.html
-[Chart XY]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/ChartXY.html
-[Axis]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/Axis.html
-[Dashboard]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/Dashboard.html
-[Line series]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/LineSeries.html
-[Area series]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/AreaSeriesPositive.html
-[Axis tick strategies]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/variables/AxisTickStrategies.html
-[Legend box]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/Chart.html#addLegendBox
-[Zoom band chart]: https://lightningchart.com/js-charts/api-documentation/v5.0.1/classes/ZoomBandChart.html
+[Lightning chart]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/functions/lightningChart-1.html
+[Chart XY]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/classes/ChartXY.html
+[Axis]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/classes/Axis.html
+[Dashboard]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/classes/Dashboard.html
+[Line series]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/classes/LineSeries.html
+[Area series]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/classes/AreaSeriesPositive.html
+[Axis tick strategies]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/variables/AxisTickStrategies.html
+[Legend box]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/classes/Chart.html#addLegendBox
+[Zoom band chart]: https://lightningchart.com/js-charts/api-documentation/v5.1.0/classes/ZoomBandChart.html
 
