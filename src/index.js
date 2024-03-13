@@ -12,7 +12,7 @@ const dashboard = lightningChart()
     .Dashboard({
         numberOfColumns: 1,
         numberOfRows: 2,
-        theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined,
+        theme: Themes[new URLSearchParams(window.location.search).get('theme') || 'darkGold'] || undefined
     })
     .setRowHeight(0, 1)
     .setRowHeight(1, 0.2)
