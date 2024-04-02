@@ -73,7 +73,7 @@ const zoomBandChart = dashboard.createZoomBandChart({ columnIndex: 0, rowIndex: 
 zoomBandChart.add(seriesClose)
 zoomBandChart.add(seriesVolume)
 
-fetch(document.head.baseURI + 'examples/assets/0053/data.json')
+fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pathname + 'examples/assets/0053/data.json')
     .then((r) => r.json())
     .then((data) => {
         // Compile XY data point lists for close series and volume series.
