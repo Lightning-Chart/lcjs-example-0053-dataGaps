@@ -2,7 +2,7 @@
  * Example showcasing how data gaps can be handled XY series. Particularly highlights line and area series in a trading use case
  */
 // Import LightningChartJS
-const lcjs = require('@arction/lcjs')
+const lcjs = require('@lightningchart/lcjs')
 
 // Extract required parts from LightningChartJS.
 const { lightningChart, AxisTickStrategies, emptyLine, LegendBoxBuilders, Themes } = lcjs
@@ -21,7 +21,7 @@ const dashboard = lightningChart({
 
 const chart = dashboard.createChartXY({ columnIndex: 0, rowIndex: 0 }).setTitle('Chart with data gaps')
 
-const axisClose = chart.getDefaultAxisY().setTitle('Stock price (€)')
+const axisClose = chart.getDefaultAxisY().setTitle('Stock price').setUnits('€')
 
 const seriesClose = chart
     .addLineSeries({
@@ -29,34 +29,19 @@ const seriesClose = chart
             pattern: 'ProgressiveX',
         },
     })
-    .setName('Stock price (€)')
-    .setCursorInterpolationEnabled(false)
-    .setCursorResultTableFormatter((builder, series, x, y, dataPoint) =>
-        builder
-            .addRow(series.getName())
-            .addRow(series.axisX.formatValue(dataPoint.x))
-            .addRow(`${series.axisY.formatValue(dataPoint.y)} €`),
-    )
+    .setName('Stock price')
 
 const axisVolume = chart
     .addAxisY({ opposite: true })
-    .setTitle('Volume (€)')
+    .setTitle('Volume')
+    .setUnits('€')
     .setTickStrategy(AxisTickStrategies.Numeric, (ticks) =>
         ticks
             .setMajorTickStyle((major) => major.setGridStrokeStyle(emptyLine))
             .setMinorTickStyle((minor) => minor.setGridStrokeStyle(emptyLine)),
     )
 
-const seriesVolume = chart
-    .addAreaSeries({ yAxis: axisVolume })
-    .setName('Volume (€)')
-    .setCursorInterpolationEnabled(false)
-    .setCursorResultTableFormatter((builder, series, position, high, low) =>
-        builder
-            .addRow(series.getName())
-            .addRow(series.axisX.formatValue(position))
-            .addRow(`${series.axisY.formatValue(high)} €`),
-    )
+const seriesVolume = chart.addAreaSeries({ yAxis: axisVolume }).setName('Volume')
 
 const dateOrigin = new Date('2021-01-01')
 const dateOriginTime = dateOrigin.getTime()
