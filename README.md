@@ -68,13 +68,13 @@ Direct developer email support can be purchased through a [Support Plan][4] or b
 © LightningChart Ltd 2009-2022. All rights reserved.
 
 
-[Lightning chart]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/functions/lightningChart-1.html
-[Chart XY]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/ChartXY.html
-[Axis]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/Axis.html
-[Dashboard]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/Dashboard.html
-[Line series]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/LineSeries.html
-[Area series]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/AreaSeriesPositive.html
-[Axis tick strategies]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/variables/AxisTickStrategies.html
-[Legend box]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/Chart.html#addLegendBox
-[Zoom band chart]: https://lightningchart.com/js-charts/api-documentation/v6.0.0/classes/ZoomBandChart.html
+[Lightning chart]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/functions/lightningChart-1.html
+[Chart XY]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/ChartXY.html
+[Axis]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/Axis.html
+[Dashboard]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/Dashboard.html
+[Line series]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/LineSeries.html
+[Area series]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/AreaSeriesPositive.html
+[Axis tick strategies]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/variables/AxisTickStrategies.html
+[Legend box]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/Chart.html#addLegendBox
+[Zoom band chart]: https://lightningchart.com/js-charts/api-documentation/v6.1.0/classes/ZoomBandChart.html
 
