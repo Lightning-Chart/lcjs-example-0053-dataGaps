@@ -5,7 +5,7 @@
 const lcjs = require('@lightningchart/lcjs')
 
 // Extract required parts from LightningChartJS.
-const { lightningChart, AxisTickStrategies, emptyLine, LegendBoxBuilders, Themes } = lcjs
+const { lightningChart, AxisTickStrategies, emptyLine, LegendBoxBuilders, emptyFill, Themes } = lcjs
 
 // NOTE: Using `Dashboard` is no longer recommended for new applications. Find latest recommendations here: https://lightningchart.com/js-charts/docs/basic-topics/grouping-charts/
 const dashboard = lightningChart({
@@ -21,16 +21,17 @@ const dashboard = lightningChart({
 
 const chart = dashboard.createChartXY({ columnIndex: 0, rowIndex: 0 }).setTitle('Chart with data gaps')
 
-const axisClose = chart.getDefaultAxisY().setTitle('Stock price').setUnits('€')
+const axisClose = chart.getDefaultAxisY().setTitle('Stock price').setUnits('€').setMargins(200, 0)
 
 const seriesClose = chart
-    .addLineSeries({
-        dataPattern: {
-            pattern: 'ProgressiveX',
-        },
+    .addPointLineAreaSeries({
+        dataPattern: 'ProgressiveX',
     })
+    .setAreaFillStyle(emptyFill)
     .setName('Stock price')
-
+chart.setUserInteractions({
+    wheel: { sensitivity: 0.2 },
+})
 const axisVolume = chart
     .addAxisY({ opposite: true })
     .setTitle('Volume')
@@ -40,8 +41,10 @@ const axisVolume = chart
             .setMajorTickStyle((major) => major.setGridStrokeStyle(emptyLine))
             .setMinorTickStyle((minor) => minor.setGridStrokeStyle(emptyLine)),
     )
+    .setUserInteractions({ wheel: { mode: 'keep-start' }, touchZoom: { mode: 'keep-start' } })
+    .setLength({ pixels: 200 })
 
-const seriesVolume = chart.addAreaSeries({ yAxis: axisVolume }).setName('Volume')
+const seriesVolume = chart.addPointLineAreaSeries({ dataPattern: 'ProgressiveX', yAxis: axisVolume }).setName('Volume')
 
 const dateOrigin = new Date('2021-01-01')
 const dateOriginTime = dateOrigin.getTime()
