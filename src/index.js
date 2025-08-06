@@ -5,7 +5,7 @@
 const lcjs = require('@lightningchart/lcjs')
 
 // Extract required parts from LightningChartJS.
-const { lightningChart, AxisTickStrategies, emptyLine, LegendBoxBuilders, emptyFill, Themes } = lcjs
+const { lightningChart, AxisTickStrategies, emptyLine, emptyFill, LegendPosition, Themes } = lcjs
 
 // NOTE: Using `Dashboard` is no longer recommended for new applications. Find latest recommendations here: https://lightningchart.com/js-charts/docs/basic-topics/grouping-charts/
 const dashboard = lightningChart({
@@ -19,16 +19,17 @@ const dashboard = lightningChart({
     .setRowHeight(0, 1)
     .setRowHeight(1, 0.2)
 
-const chart = dashboard.createChartXY({ columnIndex: 0, rowIndex: 0 }).setTitle('Chart with data gaps')
+const chart = dashboard.createChartXY({ 
+    legend: { 
+        position: LegendPosition.TopRight,
+    },
+    columnIndex: 0, 
+    rowIndex: 0 
+}).setTitle('Chart with data gaps')
 
 const axisClose = chart.getDefaultAxisY().setTitle('Stock price').setUnits('€').setMargins(200, 0)
 
-const seriesClose = chart
-    .addPointLineAreaSeries({
-        dataPattern: 'ProgressiveX',
-    })
-    .setAreaFillStyle(emptyFill)
-    .setName('Stock price')
+const seriesClose = chart.addLineSeries().setName('Stock price')
 chart.setUserInteractions({
     wheel: { sensitivity: 0.2 },
 })
@@ -44,7 +45,7 @@ const axisVolume = chart
     .setUserInteractions({ wheel: { mode: 'keep-start' }, touchZoom: { mode: 'keep-start' } })
     .setLength({ pixels: 200 })
 
-const seriesVolume = chart.addPointLineAreaSeries({ dataPattern: 'ProgressiveX', yAxis: axisVolume }).setName('Volume')
+const seriesVolume = chart.addPointLineAreaSeries({ yAxis: axisVolume }).setName('Volume')
 
 const dateOrigin = new Date('2021-01-01')
 const dateOriginTime = dateOrigin.getTime()
@@ -57,7 +58,6 @@ const axisX = chart
         start: new Date('2021-12-07 20:00:00').getTime() - dateOriginTime,
         end: new Date('2021-12-11 06:00:00').getTime() - dateOriginTime,
     })
-const legend = chart.addLegendBox(LegendBoxBuilders.HorizontalLegendBox).add(chart)
 
 const zoomBandChart = dashboard.createZoomBandChart({ columnIndex: 0, rowIndex: 1 }).setTitle('')
 zoomBandChart.add(seriesClose)
@@ -89,6 +89,6 @@ fetch(new URL(document.head.baseURI).origin + new URL(document.head.baseURI).pat
             xPrev = p.time
         }
 
-        seriesClose.add(closeDataXY)
-        seriesVolume.add(volumeDataXY)
+        seriesClose.appendJSON(closeDataXY)
+        seriesVolume.appendJSON(volumeDataXY)
     })
