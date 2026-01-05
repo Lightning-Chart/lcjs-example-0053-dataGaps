@@ -23,13 +23,13 @@ Normally, series types such as `LineSeries`, `AreaSeries`, etc. automatically co
 
 [//]: # 'IMPORTANT: The assets will not show before README.md is built - relative path is different!'
 
-![](./assets/pic1.png)
+![Picture 1](./assets/pic1.png)
 
 In LightningChart JS, data gaps can be specified by adding an extra data point with value of `NaN` (_Not-A-Number_).
 
 [//]: # 'IMPORTANT: The assets will not show before README.md is built - relative path is different!'
 
-![](./assets/pic2.png)
+![Picture 2](./assets/pic2.png)
 
 The code of this example shows one way of automatically detecting gaps in data sets and adding the `NaN` data points in. By default it looks for 1 hour difference between two data points, but this can be easily modified.
 
